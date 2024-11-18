@@ -1,3 +1,20 @@
+<template>
+  <Layout class="editor-layout">
+    <Layout.Sider width="50%" class="editor-sider">
+      <div class="editor-header">
+        <h2>Vue Editor</h2>
+        <Button type="primary" @click="saveCode">Save</Button>
+      </div>
+      <CodeEditor v-model="code" class="code-editor" />
+    </Layout.Sider>
+    <Layout.Content class="preview-content">
+      <h2>Preview</h2>
+      <div class="preview-wrapper">
+        <PreviewPane :code="code" />
+      </div>
+    </Layout.Content>
+  </Layout>
+</template>
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { Layout, Button, message } from 'ant-design-vue';
@@ -63,23 +80,7 @@ const saveCode = async () => {
 };
 </script>
 
-<template>
-  <Layout class="editor-layout">
-    <Layout.Sider width="50%" class="editor-sider">
-      <div class="editor-header">
-        <h2>Vue Editor</h2>
-        <Button type="primary" @click="saveCode">Save</Button>
-      </div>
-      <CodeEditor v-model="code" class="code-editor" />
-    </Layout.Sider>
-    <Layout.Content class="preview-content">
-      <h2>Preview</h2>
-      <div class="preview-wrapper">
-        <PreviewPane :code="code" />
-      </div>
-    </Layout.Content>
-  </Layout>
-</template>
+
 
 <style scoped>
 .editor-layout {
