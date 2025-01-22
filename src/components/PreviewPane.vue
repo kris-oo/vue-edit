@@ -51,7 +51,7 @@ const compileAndRender = async (code: string) => {
       setup() {
         return setupFn({ ...Antd, ref });
       },
-      errorCaptured(err: Error) {
+      errorCaptured(err: unknown) {
         console.error('运行时错误:', err);
         return false;
       }
